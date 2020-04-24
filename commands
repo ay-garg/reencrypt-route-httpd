@@ -13,9 +13,17 @@ You can set the CN (Common Name) as per your requirement
 
 
 ---------------------------------------------------------------------------------
+
+--> Create an extension file to use while obtaining the CA cert with CA:true extension
+# cat extension-file 
+keyUsage               = critical,digitalSignature,keyEncipherment,keyCertSign
+basicConstraints       = critical,CA:true
+
+---------------------------------------------------------------------------------
+
 --> Obtain the CA cert (I am using it as dest-ca-cert for route)
 
-# openssl x509 -req -days 365 -in RootCA.csr -signkey RootCA.key -out RootCA.crt
+# openssl x509 -req -days 1460 -in RootCA.csr -signkey RootCA.key -out RootCA.crt -sha256 -extfile extension-file
 
 
 ---------------------------------------------------------------------------------
