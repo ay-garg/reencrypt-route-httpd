@@ -78,7 +78,7 @@ EXPOSE 443
 CMD ["httpd", "-D", "FOREGROUND"]
 ```
 
-## This pod will run with root user, so anyuid scc needs to be added to default serviceaccount before running the pod.
+## This pod will run with root user, so anyuid scc needs to be added to default serviceaccount before running the pod
 ```
 # oc adm policy add-scc-to-user anyuid -z default
 ```
