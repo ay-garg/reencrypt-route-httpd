@@ -17,7 +17,7 @@ keyUsage               = critical,digitalSignature,keyEncipherment,keyCertSign
 basicConstraints       = critical,CA:true
 ```
 
-## Obtain the CA cert (I am using it as dest-ca-cert for route)
+## Obtain the CA cert (it will be used as dest-ca-cert for route)
 ```
 # openssl x509 -req -days 1460 -in RootCA.csr -signkey RootCA.key -out RootCA.crt -sha256 -extfile extension-file
 ```
