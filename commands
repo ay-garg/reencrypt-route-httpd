@@ -21,7 +21,7 @@ basicConstraints       = critical,CA:true
 
 ---------------------------------------------------------------------------------
 
---> Obtain the CA cert (I am using it as dest-ca-cert for route)
+--> Obtain the CA cert (it will be used as dest-ca-cert for route)
 
 # openssl x509 -req -days 1460 -in RootCA.csr -signkey RootCA.key -out RootCA.crt -sha256 -extfile extension-file
 
@@ -37,7 +37,7 @@ basicConstraints       = critical,CA:true
  
 # openssl req -new -key ayush.key -out ayush.csr -subj "/CN=httpd-rencrypt.ayush.com"
 
-The CN I set here is same to the route hostname that I will create
+The CN set here is same to the route hostname that will be created
 
 
 ---------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ CMD ["httpd", "-D", "FOREGROUND"]
 
 
 ---------------------------------------------------------------------------------
---> This pod will run with root user in my case, so I will add anyuid scc to default user before running the pod.
+--> This pod will run with root user, so anyuid scc needs to be added to default serviceaccount before running the pod
 
 # oc adm policy add-scc-to-user anyuid -z default
 
