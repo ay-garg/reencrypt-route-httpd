@@ -32,7 +32,7 @@ basicConstraints       = critical,CA:true
 # openssl req -new -key ayush.key -out ayush.csr -subj "/CN=httpd-rencrypt.ayush.com"
 ```
 
-## The CN I set here is same to the route hostname that I will create
+## The CN set here is same to the route hostname that will be created
 
 ## Obtain the application certificate
 ```
@@ -78,7 +78,7 @@ EXPOSE 443
 CMD ["httpd", "-D", "FOREGROUND"]
 ```
 
-## This pod will run with root user in my case, so I will add anyuid scc to default user before running the pod.
+## This pod will run with root user, so anyuid scc needs to be added to default serviceaccount before running the pod.
 ```
 # oc adm policy add-scc-to-user anyuid -z default
 ```
