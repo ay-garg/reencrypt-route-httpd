@@ -85,7 +85,7 @@ CMD ["httpd", "-D", "FOREGROUND"]
 
 ## Create the application with the docker image
 ```
-# oc new-app --name httpd --docker-image=docker-image-url
+# oc new-app --name httpd --image=docker-image-url
 ```
 
 ## curl the pod IP
