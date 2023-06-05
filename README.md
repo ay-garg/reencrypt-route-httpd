@@ -47,7 +47,7 @@ basicConstraints       = critical,CA:true
 ## Here's the Dockerfile
 ```
 # Centos base images
-FROM centos:latest
+FROM centos:centos7
 
 # Update currently installed package and install httpd, mod_ssl, ca-certificates packages
 RUN yum -y update && yum -y install \
